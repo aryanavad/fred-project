@@ -6,7 +6,7 @@ import requests
 import pandas as pd
 from io import BytesIO
 import base64
-import apikey
+from dotenv import API_KEY
 
 
 app = Flask(__name__)
@@ -52,7 +52,7 @@ def index():
 
 @app.route('/get_data', methods=['POST'])
 def get_data():
-    api_key = apikey
+    api_key = API_KEY
     fredpy = FredPy(api_key)
 
     series_id = request.form['series_id']
